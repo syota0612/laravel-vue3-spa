@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import TaskListComponent from "./components/TaskList";
 import TaskShowComponent from "./components/TaskShow";
 import TaskCreateComponent from "./components/TaskCreate";
+import TaskEditComponent from "./components/TaskEdit";
 
 const routes = [
 
@@ -24,7 +25,14 @@ const routes = [
     component: TaskCreateComponent,
   },
 
-  
+  {
+    path: "/tasks/:taskId/edit",
+    name: "task.edit",
+    component: TaskEditComponent,
+    props: true,
+  }
+
+
 ];
 
 const router = createRouter({

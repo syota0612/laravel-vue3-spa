@@ -12,13 +12,15 @@ import HeaderComponent from "./components/Header"
 import TaskListComponent from "./components/TaskList";
 import TaskShowComponent from "./components/TaskShow";
 import TaskCreateComponent from "./components/TaskCreate";
+import TaskEditComponent from "./components/TaskEdit";
 
 createApp({
     components: {
         HeaderComponent,
         TaskListComponent,
         TaskShowComponent,
-        TaskCreateComponent
+        TaskCreateComponent,
+        TaskEditComponent
     },
 
 }).use(router).mount("#app");
