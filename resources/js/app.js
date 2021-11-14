@@ -11,12 +11,14 @@ import router from "./routes";
 import ExampleComponent from "./components/ExampleComponent.vue"
 import HeaderComponent from "./components/Header.vue"
 import TaskListComponent from "./components/TaskList.vue";
+import TaskShowComponent from "./components/TaskShow.vue";
 
 createApp({
     components: {
         ExampleComponent,
         HeaderComponent,
-        TaskListComponent
+        TaskListComponent,
+        TaskShowComponent
     },
 
 }).use(router).mount("#app");
