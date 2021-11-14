@@ -8,17 +8,17 @@ require('./bootstrap');
 
 import { createApp } from "vue";
 import router from "./routes";
-import ExampleComponent from "./components/ExampleComponent.vue"
-import HeaderComponent from "./components/Header.vue"
-import TaskListComponent from "./components/TaskList.vue";
-import TaskShowComponent from "./components/TaskShow.vue";
+import HeaderComponent from "./components/Header"
+import TaskListComponent from "./components/TaskList";
+import TaskShowComponent from "./components/TaskShow";
+import TaskCreateComponent from "./components/TaskCreate";
 
 createApp({
     components: {
-        ExampleComponent,
         HeaderComponent,
         TaskListComponent,
-        TaskShowComponent
+        TaskShowComponent,
+        TaskCreateComponent
     },
 
 }).use(router).mount("#app");

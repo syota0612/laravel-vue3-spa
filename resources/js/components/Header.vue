@@ -7,7 +7,9 @@
                     <router-link :to="{name: 'task.list'}">
                         <button class="btn btn-success">List</button>
                     </router-link>
-                    <button class="btn btn-success m-1">ADD</button>
+                    <router-link :to="{name: 'task.create'}">
+                        <button class="btn btn-success m-1">ADD</button>
+                    </router-link>
                 </div>
             </nav>
         </div>
