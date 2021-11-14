@@ -13,18 +13,18 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(item, index) in items" :key="index">
-                <th scope="row">{{item}}</th>
-                <td>Title{{item}}</td>
-                <td>Content{{item}}</td>
-                <td>Ichiro</td>
+            <tr v-for="(task, index) in tasks" :key="index">
+                <th scope="row">{{task.id}}</th>
+                <td>{{task.title}}</td>
+                <td>{{task.content}}</td>
+                <td>{{task.person_in_charge}}</td>
                 <td>
-                    <router-link :to="{name: 'task.show', params: {taskId: item}}">
+                    <router-link :to="{name: 'task.show', params: {taskId: task.id}}">
                         <button class="btn btn-primary">Show</button>
                     </router-link>
                 </td>
                 <td>
-                    <router-link :to="{name: 'task.edit', params: {taskId: item}}">
+                    <router-link :to="{name: 'task.edit', params: {taskId: task.id}}">
                         <button class="btn btn-success">Edit</button>
                     </router-link>
                 </td>
@@ -38,13 +38,25 @@
 </template>
 
 <script>
+import { ref, onMounted, watch, toRefs, computed} from 'vue';
     export default {
         setup() {
+            let tasks = ref([]);
 
-            const items = [1, 2, 3];
+            const getTasks = () => {
+                axios.get('/api/tasks')
+                .then((res) => {
+                    tasks.value = res.data;
+                });
+            };
+
+            onMounted(() => {
+                getTasks();
+            });
 
             return {
-                items
+                tasks,
+                getTasks,
             }
         }
     }
