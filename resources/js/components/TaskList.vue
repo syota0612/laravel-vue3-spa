@@ -29,7 +29,7 @@
                     </router-link>
                 </td>
                 <td>
-                    <button class="btn btn-danger">Delete</button>
+                    <button class="btn btn-danger" @click="deleteTask(task.id)">Delete</button>
                 </td>
             </tr>
             </tbody>
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { ref, onMounted, watch, toRefs, computed} from 'vue';
+import { ref, onMounted} from 'vue';
     export default {
         setup() {
             let tasks = ref([]);
@@ -50,13 +50,20 @@ import { ref, onMounted, watch, toRefs, computed} from 'vue';
                 });
             };
 
+            const deleteTask = (id) => {
+                axios.delete('/api/tasks/' + id)
+                .then((res) => {
+                    getTasks();
+                })
+            };
+
             onMounted(() => {
                 getTasks();
             });
 
             return {
                 tasks,
-                getTasks,
+                deleteTask,
             }
         }
     }

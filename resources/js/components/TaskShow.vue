@@ -40,7 +40,7 @@ import { ref, onMounted } from "vue";
             let task = ref({});
 
             const getTask = () => {
-                axios('/api/tasks/' + props.taskId)
+                axios.get('/api/tasks/' + props.taskId)
                 .then((res) => {
                     task.value = res.data;
                 })
