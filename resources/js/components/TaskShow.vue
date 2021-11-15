@@ -30,9 +30,30 @@
 </template>
 
 <script>
+import { ref, onMounted } from "vue";
     export default {
         props: {
             taskId: String
+        },
+
+        setup(props){
+            let task = ref({});
+
+            const getTask = () => {
+                axios('/api/tasks/' + props.taskId)
+                .then((res) => {
+                    task.value = res.data;
+                })
+            }
+
+            onMounted(() => {
+                getTask();
+            });
+
+            return {
+                task,
+            }
+
         }
     }
 </script>

@@ -5,11 +5,16 @@ import TaskCreateComponent from "./components/TaskCreate";
 import TaskEditComponent from "./components/TaskEdit";
 
 const routes = [
-
   {
     path: "/tasks",
     name: "task.list",
     component: TaskListComponent,
+  },
+
+  {
+    path: "/tasks/create",
+    name: "task.create",
+    component: TaskCreateComponent,
   },
 
   {
@@ -20,19 +25,11 @@ const routes = [
   },
 
   {
-    path: "/tasks/create",
-    name: "task.create",
-    component: TaskCreateComponent,
-  },
-
-  {
     path: "/tasks/:taskId/edit",
     name: "task.edit",
     component: TaskEditComponent,
     props: true,
-  }
-
-
+  },
 ];
 
 const router = createRouter({
